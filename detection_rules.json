@@ -1,0 +1,41 @@
+[
+  {
+    "id": "SOC-001", "name": "Encoded PowerShell execution", "pattern": "encoded command|powershell\\s+-enc\\b|frombase64string", "technique_id": "T1059.001", "technique": "Command and Scripting Interpreter: PowerShell", "tactic": "Execution", "severity": "High", "explanation": "Command execution with encoded PowerShell arguments can conceal intent.", "recommendation": "Review the process tree, command line, script contents, and endpoint context."
+  },
+  {
+    "id": "SOC-002", "name": "Potential LSASS credential access", "pattern": "\\blsass\\b.*\\b(access|dump|read)\\b|\\b(dump|read)\\b.*\\blsass\\b", "technique_id": "T1003.001", "technique": "OS Credential Dumping: LSASS Memory", "tactic": "Credential Access", "severity": "Critical", "explanation": "Accessing LSASS memory can indicate an attempt to retrieve credentials.", "recommendation": "Check process identity, privileges, EDR telemetry, and authorized admin activity."
+  },
+  {
+    "id": "SOC-003", "name": "Repeated authentication failures", "pattern": "\\b\\d+ failed login attempts\\b|brute[ -]force|password spray", "technique_id": "T1110", "technique": "Brute Force", "tactic": "Credential Access", "severity": "Medium", "explanation": "Repeated login failures may reflect automated guessing or password spraying.", "recommendation": "Correlate source IP, users, authentication outcomes, and sign-in frequency."
+  },
+  {
+    "id": "SOC-004", "name": "Suspicious email attachment", "pattern": "macro-enabled.*attachment|phishing attachment", "technique_id": "T1566.001", "technique": "Phishing: Spearphishing Attachment", "tactic": "Initial Access", "severity": "High", "explanation": "Suspicious mail attachments can be used as a phishing delivery mechanism.", "recommendation": "Review sender reputation, headers, attachment hash, and user interaction."
+  },
+  {
+    "id": "SOC-005", "name": "Suspicious email link", "pattern": "phishing link|suspicious.*email link", "technique_id": "T1566.002", "technique": "Phishing: Spearphishing Link", "tactic": "Initial Access", "severity": "High", "explanation": "Email links to deceptive sites can facilitate phishing.", "recommendation": "Inspect destination reputation and determine whether recipients clicked the link."
+  },
+  {
+    "id": "SOC-006", "name": "Possible HTTP beaconing", "pattern": "periodic http callbacks|http beacon|http beaconing", "technique_id": "T1071.001", "technique": "Application Layer Protocol: Web Protocols", "tactic": "Command and Control", "severity": "Medium", "explanation": "Repeated HTTP callbacks can be a command-and-control indicator.", "recommendation": "Check periodicity, destination domain, process origin, and approved integrations."
+  },
+  {
+    "id": "SOC-007", "name": "Unexpected RDP activity", "pattern": "unexpected rdp|suspicious rdp|rdp from untrusted", "technique_id": "T1021.001", "technique": "Remote Services: Remote Desktop Protocol", "tactic": "Lateral Movement", "severity": "Medium", "explanation": "Unusual RDP access may warrant review for lateral movement.", "recommendation": "Confirm remote user authorization, destination, source network, and logon history."
+  },
+  {
+    "id": "SOC-008", "name": "Unusual local account creation", "pattern": "new local admin user|new local account", "technique_id": "T1136.001", "technique": "Create Account: Local Account", "tactic": "Persistence", "severity": "Medium", "explanation": "Unexpected user creation could provide continued access.", "recommendation": "Verify change ticket, creator identity, permissions, and account purpose."
+  },
+  {
+    "id": "SOC-009", "name": "Unexpected privilege assignment", "pattern": "added to administrators group|privilege added", "technique_id": "T1098", "technique": "Account Manipulation", "tactic": "Persistence", "severity": "High", "explanation": "Unplanned membership changes may expand an account's privileges.", "recommendation": "Compare directory audit logs with approved access change requests."
+  },
+  {
+    "id": "SOC-010", "name": "Unexpected Unix shell execution", "pattern": "unexpected shell execution|bash script from /tmp", "technique_id": "T1059.004", "technique": "Command and Scripting Interpreter: Unix Shell", "tactic": "Execution", "severity": "Medium", "explanation": "Unexpected shell execution by a service user may indicate misuse.", "recommendation": "Inspect parent processes, script origin, command history, and role expectations."
+  },
+  {
+    "id": "SOC-011", "name": "Possible Windows scheduled task persistence", "pattern": "suspicious scheduled task|unknown scheduled task created", "technique_id": "T1053.005", "technique": "Scheduled Task/Job: Scheduled Task", "tactic": "Persistence", "severity": "High", "explanation": "Unexpected scheduled task creation may enable recurring execution.", "recommendation": "Inspect task creator, task XML, trigger, executable path, and approvals."
+  },
+  {
+    "id": "SOC-012", "name": "Possible security log clearing", "pattern": "security log cleared|event log cleared|wevtutil\\s+cl", "technique_id": "T1070.001", "technique": "Indicator Removal: Clear Windows Event Logs", "tactic": "Defense Evasion", "severity": "High", "explanation": "Clearing event logs may erase evidence of activity.", "recommendation": "Review event 1102, initiator, adjacent events, and security administration changes."
+  },
+  {
+    "id": "SOC-013", "name": "Unexpected outbound data transfer", "pattern": "suspicious bulk upload|unexpected bulk exfiltration|unapproved data transfer", "technique_id": "T1041", "technique": "Exfiltration Over C2 Channel", "tactic": "Exfiltration", "severity": "Critical", "explanation": "Unusual bulk transfer over a suspected C2 channel merits investigation.", "recommendation": "Validate destination, bytes transferred, associated account, and business justification."
+  }
+]

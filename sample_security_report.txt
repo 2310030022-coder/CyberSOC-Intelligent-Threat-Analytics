@@ -1,0 +1,33 @@
+SOC THREAT DETECTION & MITRE ATT&CK — RULE-BASED LAB
+========================================================
+Dataset: uploaded or bundled CSV; sample data is synthetic
+Method: offline regex rules; no ML training or AI inference
+Input events: 12
+Candidate alerts: 10
+Events with alerts: 10
+Events without alerts: 2
+Unique ATT&CK techniques: 10
+
+ALERT SEVERITY COUNTS
+Critical: 1
+High: 4
+Medium: 5
+Low: 0
+
+CANDIDATE FINDINGS
+EVT001 | High | Encoded PowerShell execution | T1059.001 | ws-01
+EVT002 | Critical | Potential LSASS credential access | T1003.001 | ws-02
+EVT003 | Medium | Repeated authentication failures | T1110 | auth-01
+EVT004 | High | Suspicious email attachment | T1566.001 | mail-01
+EVT005 | Medium | Possible HTTP beaconing | T1071.001 | proxy-01
+EVT006 | Medium | Unexpected RDP activity | T1021.001 | finance-01
+EVT007 | Medium | Unusual local account creation | T1136.001 | ws-03
+EVT008 | High | Unexpected privilege assignment | T1098 | ad-01
+EVT009 | Medium | Unexpected Unix shell execution | T1059.004 | web-01
+EVT010 | High | Suspicious email link | T1566.002 | mail-01
+
+LIMITATIONS
+Matches are hypotheses to triage, not confirmed incidents.
+Rules can produce false positives and miss real attacks.
+Severity scores are demonstrative priorities, not measured probabilities.
+MITRE ATT&CK: https://attack.mitre.org/

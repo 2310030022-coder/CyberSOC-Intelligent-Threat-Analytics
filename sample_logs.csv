@@ -1,0 +1,13 @@
+event_id,timestamp,source,host,user,event,details
+EVT001,2026-10-30 10:00:00,Endpoint,ws-01,alice,PowerShell Execution,Suspicious encoded command launched via PowerShell -enc
+EVT002,2026-10-30 10:02:00,EDR,ws-02,system,Process Access,Unknown process attempted LSASS memory access
+EVT003,2026-10-30 10:04:00,Authentication,auth-01,bob,Failed Logins,15 failed login attempts in 2 minutes
+EVT004,2026-10-30 10:06:00,Email Gateway,mail-01,charlie,Suspicious Email,Macro-enabled invoice attachment from unknown sender
+EVT005,2026-10-30 10:08:00,Web Proxy,proxy-01,unknown,HTTP Beacon,Periodic HTTP callbacks to an unfamiliar external host
+EVT006,2026-10-30 10:10:00,Windows Event Log,finance-01,guest,RDP Access,Unexpected RDP login to finance server after hours
+EVT007,2026-10-30 10:12:00,Endpoint,ws-03,administrator,Account Provisioning,New local admin user created on a workstation
+EVT008,2026-10-30 10:14:00,Identity,ad-01,operator,Group Membership Change,User added to Administrators group unexpectedly
+EVT009,2026-10-30 10:16:00,Linux Audit,web-01,service,Shell Execution,Unexpected shell execution from a service account
+EVT010,2026-10-30 10:18:00,Email Gateway,mail-01,dana,Phishing Link,Suspicious phishing link in an unexpected email
+EVT011,2026-10-30 10:20:00,Authentication,auth-01,alice,Normal Sign-In,Successful scheduled login from a trusted workstation
+EVT012,2026-10-30 10:22:00,Backup,backup-01,backup-service,Backup Success,Automated scheduled backup completed successfully
